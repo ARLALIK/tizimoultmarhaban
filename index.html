@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>مرحبا بأسئلتكم</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f9f9f9; text-align: center; padding: 40px; }
+        h1 { color: #444; }
+        input, button { font-size: 18px; padding: 10px; width: 80%; max-width: 400px; margin: 10px auto; }
+        #response { margin-top: 20px; font-size: 20px; color: #222; background: #e0e0e0; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>🤖 مرحبا بأسئلتكم 🤖</h1>
+    <input type="text" id="question" placeholder="سول أي حاجة..." />
+    <br>
+    <button onclick="answer()">جاوبني</button>
+    <div id="response"></div>
+
+    <script>
+        const responses = ['دخل سوق راسك مالك نتا هو المقدم امعضور ايا', 'ماخ مكدان كي متريت ايناغ', 'كون غا كتسكت غتدي الاجر فراسك', 'و المفلس لكم امانك خلاص', 'اوا اوردتحشامت اوا وخا كنغا يان خلا', 'دو ازار والو تخسي تساعتى بين ومان اخسي الضو', 'ترفا ارفوفين خلاص تسنت غد اورتتسينت', 'وااا اوا اكنعل ربي اوا اشكو اوردتحشامت اوا', 'تسنت كي وخا كنغا يان اورماتحشمت خلاص', 'اجيج', 'ترفاااا', 'وشعاااال', 'ولكم امانك اوا', 'اهوا تخساك تغرسي', 'اسنك كيوتغ مدكدوين اشحال كي', 'كيك تونانت كي فراسك ايمر دنتفكار مكاد ادسدتفكارت كلاه نقيما داد', 'سير اوا اتلكمت امانك خلاص', 'القهوة تيت صابون شمع اكامن الجرارت القهة زيزوار الناقوس الزعفران خدنجال الجاوي لستيك'];
+        const defaultResponse = "سير شوف منعرف أمعضور ايا";
+
+        function answer() {
+            const question = document.getElementById('question').value.trim();
+            if (question === "") {
+                document.getElementById('response').innerText = "كتب شي سؤال الأول!";
+                return;
+            }
+            // Pick a random response
+            const reply = responses[Math.floor(Math.random() * responses.length)] || defaultResponse;
+            document.getElementById('response').innerText = reply;
+        }
+    </script>
+</body>
+</html>
